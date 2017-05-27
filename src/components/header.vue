@@ -1,14 +1,12 @@
 <template>
-  <header class="header">
-  	<span class="logo"></span>
-  	<div class="nav">
-  		<router-link :to="{ path: '/index'}">首页</router-link>
-    	<router-link :to="{ path: '/resume'}">简历</router-link>
-    	<router-link :to="{ path: '/myBlog'}">我的主页</router-link>
-    	<router-link :to="{ path: '/about'}">关于我们</router-link>
-    	<router-link :to="{ path: '/employ'}">招聘</router-link>
-  	</div>
-  </header>
+<header>
+   <mu-appbar title="vip简历">
+    <mu-icon-button icon="menu" slot="left"/>
+    <mu-flat-button label="您的简历" slot="right"/>
+    <mu-flat-button href="333" label="编写简历" slot="right"/>
+    <mu-icon-button icon="expand_more" slot="right"/>
+  </mu-appbar>
+</header>
 </template>
 
 <script>
@@ -18,16 +16,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import '../../static/css/common.less';
-.header{
-	width: 100%;
-	background: #5fc2e9;
-	.logo{}
-	.nav{
-		a{ 
-      color: #fff; 
-      .px2px(font-size, 32);
-    }
-	}
+header{
+  position: fixed; top: 0px; left: 0px; width: 100%; z-index: 1
 }
 </style>

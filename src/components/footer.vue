@@ -1,26 +1,36 @@
 <template>
   <footer class="footer">
-  	尾部
-    <img :src='imgUrl'>
+  	  <mu-paper>
+	    <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
+	      <mu-bottom-nav-item value="movies" title="Movies" icon="ondemand_video"/>
+	      <mu-bottom-nav-item value="music" title="Music" icon="music_note"/>
+	      <mu-bottom-nav-item value="books" title="Books" icon="books"/>
+	      <mu-bottom-nav-item value="pictures" title="Pictures" icon="photo"/>
+	    </mu-bottom-nav>
+	  </mu-paper>
   </footer>
 </template>
 
 <script>
 export default {
-  name: 'footer',
-  data : function(){
+  data () {
     return {
-      imgUrl : '/assets/logo.png'
-    } 
+      bottomNav: 'movies',
+      bottomNavColor: 'movies'
+    }
+  },
+  methods: {
+    handleChange (val) {
+      this.bottomNav = val
+    }
   }
 }
 </script>
 
-<style scoped>
-.footer{
-	width: 100%;
-	background: #5fc2e9;
-  background-image: url('/assets/logo.png');
+<style lang='less' scoped>
+@media screen and (min-width: 770px) {
+    footer{display: none}
 }
+ .footer{ position: fixed; bottom: 0; left: 0px; width: 100% }
 </style>
 
